@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Courses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @courses.each do |course| %>
+      <tr>
+        <td><%= course.name %></td>
+        <% booked_slots = course.subscribe.where(:user_id => current_user.id).collect{|s| s.time_slot}
+
+        ["6:00 am", "7:00 am", "6:00 pm", "7:00 pm"].each do |slot|
+          if booked_slots.include? slot
+        %>
+            <td><%=slot%></td>
+          <% else %>
+            <td><%= link_to "#{slot}", subscribe_book_slot_path(:course_id => course.id, :slot => slot) %></td>
+          <% end %>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
