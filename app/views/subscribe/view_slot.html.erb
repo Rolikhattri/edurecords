@@ -2,11 +2,11 @@
 
 <h1>Courses</h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Name</th>
-      <th colspan="4"></th>
+      <th colspan="4">Slots</th>
     </tr>
   </thead>
 
@@ -21,7 +21,7 @@
         %>
             <td><%=slot%></td>
           <% else %>
-            <td><%= link_to "#{slot}", subscribe_book_slot_path(:course_id => course.id, :slot => slot) %></td>
+            <td><%= link_to "#{slot}", subscribe_book_slot_path(:course_id => course.id, :slot => slot), :class => 'btn btn-default btn-xs' %></td>
           <% end %>
         <% end %>
       </tr>

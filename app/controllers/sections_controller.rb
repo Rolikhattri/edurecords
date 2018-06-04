@@ -14,7 +14,7 @@ class SectionsController < ApplicationController
 
   # GET /sections/new
   def new
-    @section = Section.new
+    @section = Section.new(section_params)
   end
 
   # GET /sections/1/edit

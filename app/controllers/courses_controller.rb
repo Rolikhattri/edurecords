@@ -1,5 +1,5 @@
 class CoursesController < ApplicationController
-  before_action :set_course, only: [:show, :edit, :update, :destroy]
+  before_action :set_course, only: [:edit, :update, :destroy]
     before_action :authenticate_user!
 
 
@@ -12,6 +12,7 @@ class CoursesController < ApplicationController
   # GET /courses/1
   # GET /courses/1.json
   def show
+    @course = Course.find(params[:id])
   end
 
   # GET /courses/new

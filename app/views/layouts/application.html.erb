@@ -10,7 +10,7 @@
 
 <body>
 
-<%= nav_bar fixed: :top, brand: "Courses" do %>
+<%= nav_bar fixed: :top, brand: "Course Manager" do %>
   <%if (current_user)%>
     <%= menu_group pull: :left do %>
       <%= menu_item "Courses", courses_path, :style=>'font-weight: bold;' %>
